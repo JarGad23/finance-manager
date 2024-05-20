@@ -10,7 +10,7 @@ type RequestType = InferRequestType<typeof client.api.accounts.$post>["json"];
 export const useCreateAccount = () => {
   const queryClient = useQueryClient();
 
-  const mutaation = useMutation<ResponseType, Error, RequestType>({
+  const mutation = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async (json) => {
       const res = await client.api.accounts.$post({ json });
 
@@ -25,5 +25,5 @@ export const useCreateAccount = () => {
     },
   });
 
-  return mutaation;
+  return mutation;
 };
