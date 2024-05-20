@@ -11,7 +11,7 @@ type ResponseType = InferResponseType<
 export const useDeleteAccount = (id?: string) => {
   const queryClient = useQueryClient();
 
-  const mutaation = useMutation<ResponseType, Error>({
+  const mutation = useMutation<ResponseType, Error>({
     mutationFn: async (json) => {
       const res = await client.api.accounts[":id"]["$delete"]({
         param: { id },
@@ -28,5 +28,5 @@ export const useDeleteAccount = (id?: string) => {
     },
   });
 
-  return mutaation;
+  return mutation;
 };

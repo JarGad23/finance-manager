@@ -14,7 +14,7 @@ type RequestType = InferRequestType<
 export const useEditAccount = (id?: string) => {
   const queryClient = useQueryClient();
 
-  const mutaation = useMutation<ResponseType, Error, RequestType>({
+  const mutation = useMutation<ResponseType, Error, RequestType>({
     mutationFn: async (json) => {
       const res = await client.api.accounts[":id"]["$patch"]({
         param: { id },
@@ -32,5 +32,5 @@ export const useEditAccount = (id?: string) => {
     },
   });
 
-  return mutaation;
+  return mutation;
 };
