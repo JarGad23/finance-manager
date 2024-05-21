@@ -18,10 +18,10 @@ type FormValues = z.input<typeof formSchema>;
 export const NewCategorySheet = () => {
   const { isOpen, onClose } = useNewCategory();
 
-  const mutatuion = useCreateCategory();
+  const mutation = useCreateCategory();
 
   const onSubmit = (values: FormValues) => {
-    mutatuion.mutate(values, {
+    mutation.mutate(values, {
       onSuccess: () => onClose(),
     });
   };
@@ -37,7 +37,7 @@ export const NewCategorySheet = () => {
         </SheetHeader>
         <CategoryForm
           onSubmit={onSubmit}
-          disabled={mutatuion.isPending}
+          disabled={mutation.isPending}
           defaultValues={{ name: "" }}
         />
       </SheetContent>
